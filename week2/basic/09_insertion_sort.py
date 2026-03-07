@@ -36,13 +36,19 @@ def insertion_sort(arr):
     
     # TODO: 두 번째 원소(인덱스 1)부터 시작
     ## 각 원소를 정렬된 부분에 삽입
-    ## 현재 원소를 key에 저장    
+    for i in range(1, n):
+    ## 현재 원소를 key에 저장
+        key = arr[i]
+
     ## key를 삽입할 위치 찾기
     ## j는 key 바로 앞 인덱스부터 시작
+        j = i - 1
     ## arr[j] > key인 동안 원소를 오른쪽으로 이동
+        while arr[j] > key and j >= 0:
+            arr[j + 1] = arr[j]
+            j -= 1
     ## 찾은 위치에 key 삽입
-    pass
-    
+        arr[j + 1] = key
     return arr
 
 def insertion_sort_with_steps(arr):
@@ -60,7 +66,9 @@ def insertion_sort_with_steps(arr):
         print(f"정렬된 부분: {arr[:i]}")
         
         # TODO: 삽입 위치 찾기 및 이동
-        pass
+        while arr[j] > key and j >= 0:
+            arr[j + 1] = arr[j]
+            j -= 1
         
         arr[j + 1] = key
         print(f"삽입 후: {arr}")
