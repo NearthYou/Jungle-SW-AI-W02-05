@@ -3,11 +3,11 @@
 
 nums = list()
 for i in range(9):
-    n = int(input())
-    nums.append(n)
+    num = int(input())
+    nums.append(num)
 
 max_num = max(nums)
-max_idx = nums.index(max_num)
+max_index = nums.index(max_num)
 
 print(max_num)
-print(max_idx)
+print(max_index + 1)
