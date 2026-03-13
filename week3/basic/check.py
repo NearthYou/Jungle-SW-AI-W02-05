@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """
 알고리즘 학습 문제 채점 스크립트
 
@@ -39,7 +39,7 @@ def check_solution(problem_file):
     try:
         # 문제 파일 실행
         result = subprocess.run(
-            ['python3', problem_file],
+            ['python', problem_file],
             capture_output=True,
             text=True,
             timeout=10

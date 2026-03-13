@@ -37,18 +37,18 @@ def process_emergency_room(patients):
         처리된 환자 순서
     """
     # TODO: 빈 힙 생성
-    heap = []
-    
-    
-    # TODO: 모든 환자를 힙에 추가
-    pass
+    heap = [(p, n) for n, p in patients]
+    heapq.heapify(heap)
         
     processed = []
     
     # TODO: 힙이 비어있지 않은 동안 반복
     ## 힙에서 우선순위가 가장 높은 환자 꺼내기
     ## 환자 처리
-    pass
+    while heap:
+        item = heapq.heappop(heap)
+        print(f"처리: {item[1]} (우선순위: {item[0]})")
+        processed.append(item[1])
         
     return processed
 
