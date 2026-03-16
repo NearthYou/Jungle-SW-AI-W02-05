@@ -26,3 +26,14 @@ for i in result:
         break
 
 print(f"{pw_len} {pw_middle}")
+
+
+# n = int(input())
+# words = [input().strip() for _ in range(n)]
+
+# s = set(words)
+
+# for w in words:
+#     if w[::-1] in s:
+#         print(len(w), w[len(w)//2])
+#         break
