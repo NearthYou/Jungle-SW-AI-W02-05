@@ -25,7 +25,6 @@ def binary(arr, target):
             right = mid - 1
     return 0
 
-
 n = int(input().strip())
 nums_a = list(map(int, input().split()))
 nums_a = sorted(nums_a)
@@ -35,3 +34,9 @@ nums_m = list(map(int, input().split()))
 
 for i in nums_m:
     print(binary(nums_a, i))
+
+# def solution():
+#     input()
+#     A = set(input().split())
+#     input()
+#     print('\n'.join('1' if x in A else '0' for x in input().split()))
