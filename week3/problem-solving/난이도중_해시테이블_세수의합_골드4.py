@@ -7,25 +7,19 @@
 
 # 백트래킹?
 
-
 n = int(input())
-
 nums = [int(input()) for _ in range(n)]
-set_nums = set(nums)
-max_num = 0
-arr = []
-def back_tracking(combi):
-    global max_num
-    if len(combi) == 3:
-        sum_num = max(max_num, sum(combi))
-        if sum_num in set_nums:
-            max_num = max(max_num, sum_num)
-        return
-    
-    for i in range(len(nums)):
-        combi.append(nums[i])
-        back_tracking(combi)
-        combi.pop()
 
-back_tracking(arr)
-print(max_num)
+sum_set = set()
+for i in range(len(nums) - 1):
+    for j in range(i, len(nums)):
+        sum_set.add(nums[i] + nums[j])
+nums = sorted(nums)
+
+for i in range(n - 1, -1, -1):
+    for j in range(i + 1):
+        k = nums[i]
+        z = nums[j]
+        if k - z in sum_set:
+            print(k)
+            exit()
