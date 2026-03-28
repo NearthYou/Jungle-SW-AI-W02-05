@@ -46,34 +46,42 @@ def climb_stairs(n):
         n번째 계단까지 오르는 방법의 수
     """
     # TODO: 특별한 경우 처리
-    if n == 0:
-        return 0
-    
-    if n == 1:
-        return 1
+    if n < 3:
+        return n
     
     # TODO: dp 배열 생성 및 초기화
     dp = [0] * (n + 1)
 
-    dp[1] = 1
+    dp[1], dp[2] = 1, 2
+
     # TODO: 작은 문제부터 차례로 계산
-    for i in range(2, n + 1):
-        dp[n] = dp[i - 1] + dp[i - 2]
-    
+    for i in range(3, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+
     return dp[n]
+
+def climb_top(n, memo = None):
+    if memo is None:
+        memo = {}
+    
+    if n < 3:
+        return n
+    
+    memo[n] = climb_top(n - 1, memo) + climb_top(n - 2, memo)
+    return memo[n]
 
 # 테스트 케이스
 if __name__ == "__main__":
     # 테스트 케이스 1
     print("=== 계단 오르기 ===")
     for i in range(1, 11):
-        result = climb_stairs(i)
+        result = climb_top(i)
         print(f"{i}번 계단: {result}가지")
     print()
     
     # 테스트 케이스 2: 큰 수
     n = 20
-    result = climb_stairs(n)
+    result = climb_top(n)
     print(f"{n}번 계단: {result}가지")
     print()
     
